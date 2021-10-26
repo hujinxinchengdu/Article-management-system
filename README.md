@@ -146,10 +146,12 @@ userPicture TEXT
 
 ```
 
-Successful create table
+### Successful create table
+![s1](./picture/s1.png)
+![s2](./picture/s2.png)
 
-Import data into database
-
+### Import data into database
+![i1](./picture/i1.png)
 ### Testing table is work
 
 ```sqlite
@@ -193,4 +195,9 @@ and Belong.cateId = ArticleCate.cateId
 group by ArticleCate.name
 having numberOfArticle > 1);
 ```
+![1](./picture/1.png)
+![2](./picture/2.png)
+![3](./picture/3.png)
+![4](./picture/4.png)
+![5](./picture/5.png)
 
