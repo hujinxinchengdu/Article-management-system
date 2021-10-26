@@ -143,9 +143,9 @@ userPicture TEXT
 
 ```
 
-### Successful create table
+Successful create table
 
-### Import data into database
+Import data into database
 
 ### Testing table is work
 
@@ -155,12 +155,14 @@ select Articles.title from ArticleCate, Articles, Belong, Users
 where Users.userId = ArticleCate.userId
 and ArticleCate.cateId = Belong.cateId
 and Articles.articleId = Belong.articleId;
+
 --Select Articles which belong to study category.
 select Articles.articleId,Articles.title,ArticleCate.name 
 from Articles, Belong, ArticleCate
 where Articles.articleId = Belong.articleId
 and Belong.cateId = ArticleCate.cateId
 and ArticleCate.name = 'study';
+
 --Find out total number of articles and category name of each category.
 select ArticleCate.name, count(ArticleCate.name) as numberOfArticle 
 from Articles, Belong, ArticleCate
@@ -168,6 +170,7 @@ where Articles.articleId = Belong.articleId
 and Belong.cateId = ArticleCate.cateId
 group by ArticleCate.name
 having numberOfArticle > 1;
+
 --Find total of articles.
 select count(*) from (select ArticleCate.name from Articles, Belong, ArticleCate
 where Articles.articleId = Belong.articleId
