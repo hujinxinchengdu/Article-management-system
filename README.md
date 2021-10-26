@@ -103,6 +103,7 @@ DEFAULT (0),
 userId REFERENCES Users (userId)
 NOT NULL
 );
+
 --This table is for saving articles detail information.
 CREATE TABLE Articles (
 articleId INTEGER PRIMARY KEY AUTOINCREMENT
@@ -118,6 +119,7 @@ DEFAULT (0),
 userId INTEGER REFERENCES Users (userId)
 NOT NULL
 );
+
 --This table is connecting Articles table and ArticleCate table which is many to many relationship.
 CREATE TABLE Belong (
 belongId INTEGER PRIMARY KEY AUTOINCREMENT
@@ -128,6 +130,7 @@ NOT NULL,
 articleId INTEGER REFERENCES Articles (articleId)
 NOT NULL
 );
+
 --This table is for saving user information.
 CREATE TABLE Users (
 userId INTEGER PRIMARY KEY ON CONFLICT ROLLBACK AUTOINCREMENT
