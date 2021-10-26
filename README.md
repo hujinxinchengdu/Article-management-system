@@ -44,7 +44,7 @@ The article category needs to have an alias
 
 ## Conceptual Model(UML)
 
-![uml_project1](C:\Users\hujin\Desktop\计算机\NEU课\uml_project1.png)
+![uml_project1](./picture/uml_project1.png)
 
 ## Logical Data Model
 
@@ -52,7 +52,7 @@ The article category needs to have an alias
 
 https://www.edrawmax.cn/online/share.html?code=b80d0af6362911ec90b29d87e1af6f2f
 
-<img src="C:\Users\hujin\Desktop\计算机\NEU课\er_project01.png" alt="er_project01"  />
+![uml_project1](./picture/er_project01.png)
 
 ### Relational Schema
 
@@ -145,11 +145,7 @@ userPicture TEXT
 
 ### Successful create table
 
-![Screen Shot 2021-10-25 at 5.09.37 PM](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\Screen Shot 2021-10-25 at 5.09.37 PM.png)![Screen Shot 2021-10-25 at 5.09.02 PM](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\Screen Shot 2021-10-25 at 5.09.02 PM.png)
-
 ### Import data into database
-
-![Screen Shot 2021-10-25 at 10.44.18 PM](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\Screen Shot 2021-10-25 at 10.44.18 PM.png)
 
 ### Testing table is work
 
@@ -192,12 +188,3 @@ group by ArticleCate.name
 having numberOfArticle > 1);
 ```
 
-![1](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\1.png)
-
-![2](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\2.png)
-
-![3](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\3.png)
-
-![4](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\4.png)
-
-![5](E:\云盘\Google ASU\Computer Science Study\04-阶段四 前后端交互\project01\5.png)
