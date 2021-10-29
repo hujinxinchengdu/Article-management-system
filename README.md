@@ -201,3 +201,24 @@ having numberOfArticle > 1);
 ![4](./picture/4.png)
 ![5](./picture/5.png)
 
+## How to Start
+
+Download nodejs and install
+
+Download link: https://nodejs.org/dist/v8.9.4/node-v8.9.4-x64.msi
+
+Download main from https://github.com/hujinxinchengdu/Article-management-system
+
+Open the console and enter commands to install related dependencies
+
+```
+npm install
+```
+
+Enter the following command in the vscode console:
+
+```
+nodemon app.js
+```
+
+For Frontend using vscode live sever--run server using login.html
