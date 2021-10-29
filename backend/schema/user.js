@@ -8,11 +8,11 @@ const joi = require('joi')
 * pattern (regular expression) value must conform to the rules of regular expression
 */
 // Username verification rules
-const username = joi.string().alphanum().min(1).max(10).required()
+const username = joi.string().alphanum().min(1).max(15).required()
 
 const password = joi
     .string()
-    .pattern(/^[\S]{6,12}$/)
+    .pattern(/^[\S]{6,18}$/)
     .required()
 
 exports.reg_login_schema = {
