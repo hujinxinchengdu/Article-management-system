@@ -54,7 +54,7 @@ exports.login = (req, res) => {
             return res.cc('invalid username or password!')
         }
         // After culling, only the user’s id, username, nickname, and email values ​​are retained in user.
-        const user = { ...results[0], password: '', user_pic: '' }
+        const user = { ...results[0], password: '', userPicture: '' }
         // Generate Token string
         const tokenStr = jwt.sign(user, config.jwtSecretKey, {
             expiresIn: config.expiresIn, // The token is valid for 10 hours
@@ -66,5 +66,4 @@ exports.login = (req, res) => {
             token: 'Bearer ' + tokenStr,
         })
     })
-
 }
