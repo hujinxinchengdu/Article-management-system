@@ -8,33 +8,48 @@
     <link rel="stylesheet" href="../assets/css/article/art_pub.css" />
   </head>
   <body>
-    <!-- 卡片区域 -->
+    <!-- Card area -->
     <div class="layui-card">
-      <div class="layui-card-header">写文章</div>
+      <div class="layui-card-header">Post Article</div>
       <div class="layui-card-body">
-        <!-- 发布文章的表单 -->
+        <!-- Form -->
         <form class="layui-form">
           <div class="layui-form-item">
-            <label class="layui-form-label">文章标题</label>
+            <label class="layui-form-label">title</label>
             <div class="layui-input-block">
               <input
                 type="text"
                 name="title"
                 required
                 lay-verify="required"
-                placeholder="请输入标题"
+                placeholder="Please input the title"
                 autocomplete="off"
                 class="layui-input"
               />
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label class="layui-form-label">文章类别</label>
+            <div class="layui-input-block">
+              <select name="cateId" lay-verify="required"></select>
             </div>
           </div>
         </form>
       </div>
     </div>
 
+    <script type="text/html" id="tpl-cate">
+      <option value="">Please select article category</option>
+      {{each data}}
+      <option value="{{$value.cateId}}">{{$value.title}}</option>
+      {{/each}}
+    </script>
+
     <script src="../assets/lib/layui/layui.all.js"></script>
     <script src="../assets/lib/jquery.js"></script>
     <script src="../assets/js/baseAPI.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
     <script src="../assets/js/article/art_pub.js"></script>
   </body>
 </html>
