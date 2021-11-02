@@ -54,7 +54,6 @@ exports.addArticle = (req, res) => {
 
 // 获取文章列表数据的处理函数
 exports.getArticleLists = (req, res) => {
-    console.log(req.query)
     var sql = 'select * from Articles ar,Belong be, ArticleCate arc where ar.articleId = Be.articleId and arc.cateId = Be.cateId and (ar.isDelete = 0 or ar.isDelete =\'FALSE\')order by articleId asc'
     if (req.query.cate_id === '') {
         db.all(sql, (err, results) => {
