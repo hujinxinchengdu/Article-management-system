@@ -1,5 +1,7 @@
 // Import database operation module
 const db = require("../db/index");
+// Import bcryptjs
+const bcrypt = require("bcryptjs");
 
 // Processing function for obtaining basic user information
 exports.getUserInfo = (req, res) => {
@@ -36,4 +38,37 @@ exports.updateUserInfo = (req, res) => {
       return res.cc("Succeed to update the user information!", 0);
     }
   );
+};
+
+// Processing function for updating user's pwd
+exports.updatePassword = (req, res) => {
+  const sql = `select * from Users where userId=?`;
+
+  // Execute SQL statement to query whether the user exists
+  db.all(sql, req.user.userId, (err, results) => {
+    // Failed to execute SQL statement
+    if (err) return res.cc(err);
+
+    if (results.length !== 1) return res.cc("用户不存在！");
+
+    // Determine whether the submitted old password is correct
+    const compareResult = bcrypt.compareSync(
+      req.body.oldPwd,
+      results[0].password
+    );
+    if (!compareResult) return res.cc("The original password is wrong!");
+
+    const sql = `update Users set password=? where userId=?`;
+
+    // Bcrypt washing the new password
+    const newPwd = bcrypt.hashSync(req.body.newPwd, 10);
+
+    db.all(sql, [newPwd, req.user.userId], (err, results) => {
+      // Failed to execute SQL statement
+      if (err) return res.cc(err);
+
+      // Succeeded to update pwd
+      res.cc("Succeeded to update pwd!", 0);
+    });
+  });
 };

@@ -10,7 +10,7 @@ const userinfo_handler = require("../router_handler/userinfo");
 const expressJoi = require("@escook/express-joi");
 
 // Import the required validation rule objects
-const { update_userinfo_schema } = require("../schema/user");
+const { update_userinfo_schema, update_password_schema} = require('../schema/user')
 
 // Get user's basic infomation
 router.get("/userinfo", userinfo_handler.getUserInfo);
@@ -21,6 +21,9 @@ router.post(
   expressJoi(update_userinfo_schema),
   userinfo_handler.updateUserInfo
 );
+
+// Update user's pwd
+router.post('/updatepwd', expressJoi(update_password_schema), userinfo_handler.updatePassword)
 
 // Export routing objects
 module.exports = router;
