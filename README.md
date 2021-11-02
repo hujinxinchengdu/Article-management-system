@@ -1,3 +1,5 @@
+
+
 # Article management system
 
 
@@ -219,6 +221,12 @@ Enter the following command in the vscode console:
 
 ```
 nodemon app.js
+```
+
+If do not have nodemon you should install it by following command
+
+```
+npm install --save-dev nodemon
 ```
 
 For Frontend using vscode live sever--run server using login.html
