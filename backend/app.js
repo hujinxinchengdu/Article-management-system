@@ -40,6 +40,11 @@ app.use(expressJWT({ secret: config.jwtSecretKey }).unless({
 const userRouter = require('./router/user')
 app.use('/api', userRouter)
 
+// 导入并使用文章分类路由模块
+const artCateRouter = require('./router/artcate')
+// 为文章分类的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', artCateRouter)
+
 // 错误中间件
 app.use(function (err, req, res, next) {
     // 数据验证失败

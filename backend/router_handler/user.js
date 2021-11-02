@@ -66,5 +66,4 @@ exports.login = (req, res) => {
             token: 'Bearer ' + tokenStr,
         })
     })
-
 }
