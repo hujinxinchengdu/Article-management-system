@@ -1,8 +1,8 @@
 //This function will be called every time get() post() and ajax() are called
 $.ajaxPrefilter(function (options) {
   options.url = "http://127.0.0.1:3007" + options.url;
-  //   options.url = "http://ajax.frontend.itheima.net" + options.url;
-  console.log(options.url);
+  // options.url = "http://ajax.frontend.itheima.net" + options.url;
+  // console.log(options.url);
 
   // 统一为有权限的接口，设置 headers 请求头
   if (options.url.indexOf("/my/") !== -1) {

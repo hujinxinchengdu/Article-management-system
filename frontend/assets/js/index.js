@@ -21,13 +21,14 @@ $(function () {
 function getUserInfo() {
   $.ajax({
     method: "GET",
-    URL: "/my/userinfo",
+    url: "/my/userinfo",
     // Request header configuration object
     // headers: {
     //   Authorization: localStorage.getItem("token") || "",
     // },
     success: function (res) {
       console.log(res);
+      console.log("获取用信成功");
       if (res.status !== 0) {
         // console.log("Fals")
         return layui.layer.msg("Fail to get user info!");
