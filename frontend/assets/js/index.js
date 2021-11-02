@@ -28,10 +28,10 @@ function getUserInfo() {
     // },
     success: function (res) {
       console.log(res);
-      console.log("获取用信成功");
+      console.log("Succeeded to get user info!");
       if (res.status !== 0) {
         // console.log("Fals")
-        return layui.layer.msg("Fail to get user info!");
+        return layui.layer.msg("Failed to get user info!");
       }
       // Call renderAvatar to render user avatar.
       renderAvatar(res.data);
@@ -56,13 +56,13 @@ function getUserInfo() {
 
 function renderAvatar(user) {
   // 1. 获取用户的名称
-  var name = user.nickname || user.username;
+  var name = user.nickName || user.userName;
   // 2. 设置欢迎的文本
-  $("#welcome").html("欢迎&nbsp;&nbsp;" + name);
+  $("#welcome").html("Welcome&nbsp;&nbsp;" + name);
   // 3. 按需渲染用户的头像
-  if (user.user_pic !== null) {
+  if (user.userPicture !== null) {
     // 3.1 渲染图片头像
-    $(".layui-nav-img").attr("src", user.user_pic).show();
+    $(".layui-nav-img").attr("src", user.userPicture).show();
     $(".text-avatar").hide();
   } else {
     // 3.2 渲染文本头像
