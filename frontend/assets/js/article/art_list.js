@@ -61,7 +61,7 @@ $(function () {
             url: '/my/article/cates',
             success: function (res) {
                 if (res.status !== 0) {
-                    return layer.msg('获取分类数据失败！')
+                    return layer.msg('Failed to obtain classification data!')
                 }
                 // 调用模板引擎渲染分类的可选项
                 var htmlStr = template('tpl-cate', res)
@@ -119,31 +119,30 @@ $(function () {
         })
     }
 
-    // 通过代理的形式，为删除按钮绑定点击事件处理函数
+    // Bind the click event processing function for the delete button in the form of a proxy
     $('tbody').on('click', '.btn-delete', function () {
-        // 获取删除按钮的个数
+        // Get the number of delete buttons
         var len = $('.btn-delete').length
         console.log(len)
-        // 获取到文章的 id
+        // Get the id of the article
         var id = $(this).attr('data-id')
         console.log(id)
-        // 询问用户是否要删除数据
-        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
+        // Ask the user if they want to delete the data
+        layer.confirm('Are you sure you want to delete?', { btn: 'YES', icon: 3, title: 'Attention' }, function (index) {
             $.ajax({
                 method: 'GET',
                 url: '/my/article/delete/' + id,
                 success: function (res) {
                     if (res.status !== 0) {
-                        return layer.msg('删除文章失败！')
+                        return layer.msg('Failed to delete article!')
                     }
-                    layer.msg('删除文章成功！')
-                    // 当数据删除完成后，需要判断当前这一页中，是否还有剩余的数据
-                    // 如果没有剩余的数据了,则让页码值 -1 之后,
-                    // 再重新调用 initTable 方法
-                    // 4
+                    layer.msg('The article was deleted successfully！')
+                    // When the data is deleted, it is necessary to determine whether there is any remaining data in the current page
+                    // If there is no remaining data, let the page number value -1,
+                    // call the initTable method again
                     if (len === 1) {
-                        // 如果 len 的值等于1，证明删除完毕之后，页面上就没有任何数据了
-                        // 页码值最小必须是 1
+                        // If the value of len is equal to 1, it proves that there is no data on the page after the deletion is completed
+                        // The page number value must be at least 1
                         q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
                     }
                     initTable()
