@@ -14,8 +14,16 @@ const expressJoi = require('@escook/express-joi')
 // 导入文章的验证模块
 const { add_article_schema } = require('../schema/article')
 
+
 // 导入文章的路由处理函数模块
 const article_handler = require('../router_handler/article')
 // 发布新文章
 router.post('/add', upload.single('coverImg'), expressJoi(add_article_schema), article_handler.addArticle)
+
+router.get('/list', article_handler.getArticleLists)
+
+router.get('/delete/:id', article_handler.deleteArticleById)
+
+
 module.exports = router
+
