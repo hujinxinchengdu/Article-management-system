@@ -101,8 +101,6 @@ $(function () {
           return layer.msg("Failed to post the article!");
         }
         layer.msg("Succeeded to post the article!");
-        // After successfully publishing the article, jump to the article list page
-        location.href = "/article/art_list.html";
       },
     });
   }
