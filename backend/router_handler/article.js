@@ -54,12 +54,13 @@ exports.addArticle = (req, res) => {
 
 // 获取文章列表数据的处理函数
 exports.getArticleLists = (req, res) => {
+    console.log(req.query)
     var sql = 'select * from Articles ar,Belong be, ArticleCate arc where ar.articleId = Be.articleId and arc.cateId = Be.cateId and (ar.isDelete = 0 or ar.isDelete =\'FALSE\')order by articleId asc'
     if (req.query.cate_id === '') {
         db.all(sql, (err, results) => {
-
+            // 1. 执行 SQL 语句失败
             if (err) return res.cc(err)
-
+            // 2. 执行 SQL 语句成功
             res.send({
                 status: 0,
                 message: 'Get the article list successfully!',
@@ -69,9 +70,9 @@ exports.getArticleLists = (req, res) => {
     } else {
         sql = 'select * from Articles ar,Belong be, ArticleCate arc where ar.articleId = Be.articleId and arc.cateId = Be.cateId and (ar.isDelete = 0 or ar.isDelete =\'FALSE\') and arc.cateId=? order by ar.articleId asc'
         db.all(sql, req.query.cate_id, (err, results) => {
-
+            // 1. 执行 SQL 语句失败
             if (err) return res.cc(err)
-
+            // 2. 执行 SQL 语句成功
             res.send({
                 status: 0,
                 message: 'Get the article list successfully!',
@@ -81,9 +82,11 @@ exports.getArticleLists = (req, res) => {
     }
 }
 
-// Delete the processing function of the article
+// 删除文章分类的处理函数
 exports.deleteArticleById = (req, res) => {
+    // 定义标记删除的 SQL 语句
     const sql = `update Articles set isDelete=1 where articleId=?`
+    // 调用 db.query() 执行 SQL 语句
     db.run(sql, req.params.id, (err, results) => {
         if (err) return res.cc(err)
         res.cc('The article was deleted successfully!', 0)

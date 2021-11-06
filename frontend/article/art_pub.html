@@ -6,6 +6,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="../assets/lib/layui/css/layui.css" />
     <link rel="stylesheet" href="../assets/css/article/art_pub.css" />
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="../assets/lib/cropper/cropper.css" />
+>>>>>>> Wenrui-development
   </head>
   <body>
     <!-- Card area -->
@@ -13,7 +17,11 @@
       <div class="layui-card-header">Post Article</div>
       <div class="layui-card-body">
         <!-- Form -->
+<<<<<<< HEAD
         <form class="layui-form">
+=======
+        <form class="layui-form" id="form-pub">
+>>>>>>> Wenrui-development
           <div class="layui-form-item">
             <label class="layui-form-label">title</label>
             <div class="layui-input-block">
@@ -30,11 +38,69 @@
           </div>
 
           <div class="layui-form-item">
+<<<<<<< HEAD
             <label class="layui-form-label">Article category</label>
+=======
+            <label class="layui-form-label">Article cate</label>
+>>>>>>> Wenrui-development
             <div class="layui-input-block">
               <select name="cateId" lay-verify="required"></select>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+
+          <div class="layui-form-item">
+            <!-- Left label -->
+            <label class="layui-form-label">content</label>
+            <!-- Set the height of the container outside the rich text editor -->
+            <div class="layui-input-block" style="height: 400px">
+              <textarea name="content"></textarea>
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <!-- Left label -->
+            <label class="layui-form-label">cover</label>
+            <!-- cover area -->
+            <div class="layui-input-block cover-box">
+              <!-- Left crop area -->
+              <div class="cover-left">
+                <img id="image" src="../assets/images/sample2.jpg" alt="" />
+              </div>
+              <!-- Preview area on the right and select cover area -->
+              <div class="cover-right">
+                <!-- Preview area -->
+                <div class="img-preview"></div>
+                <!-- Select cover button -->
+                <button
+                  type="button"
+                  class="layui-btn layui-btn-danger"
+                  id="btnChooseImage"
+                >
+                  Select cover
+                </button>
+
+                <!-- Hidden file selection box -->
+                <input
+                  type="file"
+                  id="coverFile"
+                  style="display: none"
+                  accept="image/png,image/jpeg,image/gif"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit>Post</button>
+              <button class="layui-btn layui-btn-primary" lay-submit id="btnSave2">
+                Save
+              </button>
+            </div>
+          </div>
+>>>>>>> Wenrui-development
         </form>
       </div>
     </div>
@@ -42,7 +108,11 @@
     <script type="text/html" id="tpl-cate">
       <option value="">Please select article category</option>
       {{each data}}
+<<<<<<< HEAD
       <option value="{{$value.cateId}}">{{$value.title}}</option>
+=======
+      <option value="{{$value.cateId}}">{{$value.name}}</option>
+>>>>>>> Wenrui-development
       {{/each}}
     </script>
 
@@ -50,6 +120,13 @@
     <script src="../assets/lib/jquery.js"></script>
     <script src="../assets/js/baseAPI.js"></script>
     <script src="../assets/lib/template-web.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="../assets/lib/tinymce/tinymce.min.js"></script>
+    <script src="../assets/lib/tinymce/tinymce_setup.js"></script>
+    <script src="../assets/lib/cropper/Cropper.js"></script>
+    <script src="../assets/lib/cropper/jquery-cropper.js"></script>
+>>>>>>> Wenrui-development
     <script src="../assets/js/article/art_pub.js"></script>
   </body>
 </html>

@@ -5,7 +5,7 @@ function initEditor() {
     //方向从左到右
     directionality: 'ltr',
     //语言选择中文
-    language: 'zh_CN',
+    language: 'zh_Eng',
     //高度为400
     height: 300,
     statusbar: false,
