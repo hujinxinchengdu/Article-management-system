@@ -2,7 +2,15 @@
 
 # Article management system
 
+Jinxin Hu:
+	Completed the sign-up and log-in part;
+	Wrote the code of article category, article list and article deleting parts;
+	Wrote code of back-end part of posting articles;
 
+Wenrui Fang:
+	Wrote the page of homepage part;
+	Completed other auxiliary functions like getting user basic information and updating password;
+	Wrote code of front-end part of posting articles;
 
 ## User Story
 
