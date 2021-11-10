@@ -1,4 +1,3 @@
-
 # Article management system
 
 Jinxin Hu:
