@@ -1,22 +1,22 @@
-//文章的路由模块
+//Article routing module
 const express = require("express");
 const router = express.Router();
-// 导入解析 formdata 格式表单数据的包
+// Import package that parses form data in formdata format
 const multer = require("multer");
-// 导入处理路径的核心模块
+// Import the core module of the processing path
 const path = require("path");
 
-// 创建 multer 的实例对象，通过 dest 属性指定文件的存放路径
+// Create an instance of multer, and specify the storage path of the file through the dest attribute
 const upload = multer({ dest: path.join(__dirname, "../uploads") });
 
-// 导入验证数据的中间件
+// Middleware for importing verification data
 const expressJoi = require("@escook/express-joi");
-// 导入文章的验证模块
+// Import the verification module of the article
 const { add_article_schema } = require("../schema/article");
 
-// 导入文章的路由处理函数模块
+// Import the routing processing function module of the article
 const article_handler = require("../router_handler/article");
-// 发布新文章
+// Publish a new article
 router.post(
   "/add",
   upload.single("coverImg"),

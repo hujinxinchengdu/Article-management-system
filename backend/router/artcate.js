@@ -1,24 +1,24 @@
 const express = require('express')
 const router = express.Router()
-// 导入文章分类的路由处理函数模块
+// Import the routing processing function module for article classification
 const artcate_handler = require('../router_handler/artcate')
-// 导入删除分类的验证规则对象
+// Import and delete validation rule objects for classification
 const { delete_cate_schema } = require('../schema/artcate')
 
-// 导入验证数据的中间件
+// Middleware for importing verification data
 const expressJoi = require('@escook/express-joi')
-// 导入文章分类的验证模块
+// Import the verification module for article classification
 const { add_cate_schema } = require('../schema/artcate')
-// 导入根据 Id 获取分类的验证规则对象
+// Import the validation rule objects that are classified according to the Id
 const { get_cate_schema } = require('../schema/artcate')
-// 导入更新文章分类的验证规则对象
+// Import the validation rule object that updates the article classification
 const { update_cate_schema } = require('../schema/artcate')
 
-// 获取文章分类的列表数据
+// Get list data of article classification
 router.get('/cates', artcate_handler.getArticleCates)
-// 新增文章分类的路由
+// Add routing for article classification
 router.post('/addcates', expressJoi(add_cate_schema), artcate_handler.addArticleCates)
-// 删除文章分类的路由
+// Delete the route of the article category
 router.get('/deletecate/:id', expressJoi(delete_cate_schema), artcate_handler.deleteCateById)
 
 router.get('/cates/:id', expressJoi(get_cate_schema), artcate_handler.getArticleById)

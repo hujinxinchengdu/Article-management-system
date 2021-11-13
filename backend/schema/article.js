@@ -1,11 +1,11 @@
-// 导入定义验证规则的模块
+// Import the module that defines the validation rules
 const joi = require('joi')
-// 定义 标题、分类Id、内容、发布状态 的验证规则
+// Define validation rules for title, category ID, content, and release status
 const title = joi.string().required()
 const cateId = joi.number().integer().min(1).required()
 const content = joi.string().required().allow('')
 const state = joi.string().valid('published', 'draft').required()
-// 验证规则对象 - 发布文章
+// Validation Rule Object-Post Article
 exports.add_article_schema = {
     body: {
         title,

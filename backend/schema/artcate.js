@@ -1,14 +1,14 @@
-// 导入定义验证规则的模块
+// Import the module that defines the validation rules
 const joi = require('joi')
-// 定义 分类名称 和 分类别名 的校验规则
+// Define verification rules for category name and category alias
 const name = joi.string().required()
 const alias = joi.string().alphanum().required()
 
-// 定义 分类Id 的校验规则
+// Define the verification rules for category Id
 const id = joi.number().integer().min(0).required()
 
 
-// 校验规则对象 - 添加分类
+// Validation rule object-add classification
 exports.add_cate_schema = {
     body: {
         name,
@@ -16,21 +16,21 @@ exports.add_cate_schema = {
     },
 }
 
-// 校验规则对象 - 删除分类
+// Validation rule object-delete classification
 exports.delete_cate_schema = {
     params: {
         id,
     },
 }
 
-// 校验规则对象 - 根据 Id 获取分类
+// Validation rule object-get classification based on Id
 exports.get_cate_schema = {
     params: {
         id,
     },
 }
 
-// 校验规则对象 - 更新分类
+// Validation rule object-update classification
 exports.update_cate_schema = {
     body: {
         cateId: id,

@@ -15,7 +15,7 @@ const password = joi
   .pattern(/^[\S]{6,18}$/)
   .required();
 
-// 定义 id, nickname, emial 的验证规则
+// Define verification rules for id, nickname, emial
 const userId = joi.number().integer().min(1).required();
 const nickName = joi.string().required();
 const email = joi.string().email().required();
@@ -27,7 +27,7 @@ exports.reg_login_schema = {
   },
 };
 
-// 验证规则对象 - 更新用户基本信息
+// Validation rule object-update user basic information
 exports.update_userinfo_schema = {
   body: {
     userId,
@@ -36,16 +36,16 @@ exports.update_userinfo_schema = {
   },
 };
 
-// 验证规则对象 - 重置密码
+// Validation rule object-reset password
 exports.update_password_schema = {
   body: {
-    // 使用 password 这个规则，验证 req.body.oldPwd 的值
+    // Use the password rule to verify the value of req.body.oldPwd
     oldPwd: password,
-    // 使用 joi.not(joi.ref('oldPwd')).concat(password) 规则，验证 req.body.newPwd 的值
-    // 解读：
-    // 1. joi.ref('oldPwd') 表示 newPwd 的值必须和 oldPwd 的值保持一致
-    // 2. joi.not(joi.ref('oldPwd')) 表示 newPwd 的值不能等于 oldPwd 的值
-    // 3. .concat() 用于合并 joi.not(joi.ref('oldPwd')) 和 password 这两条验证规则
+    // Use the joi.not(joi.ref('oldPwd')).concat(password) rule to verify the value of req.body.newPwd
+    // Interpretation:
+    // 1. joi.ref('oldPwd') means that the value of newPwd must be consistent with the value of oldPwd
+    // 2. joi.not(joi.ref('oldPwd')) means that the value of newPwd cannot be equal to the value of oldPwd
+    // 3. .concat() is used to merge the two verification rules joi.not(joi.ref('oldPwd')) and password
     newPwd: joi.not(joi.ref('oldPwd')).concat(password),
   },
 }
