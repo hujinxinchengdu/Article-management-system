@@ -219,6 +219,13 @@ Download link: https://nodejs.org/dist/v8.9.4/node-v8.9.4-x64.msi
 
 Download main from https://github.com/hujinxinchengdu/Article-management-system
 
+For backend first of all go the backend folder
+
+```
+cd backend
+```
+
+
 Open the console and enter commands to install related dependencies
 
 ```
@@ -238,4 +245,5 @@ npm install --save-dev nodemon
 ```
 
 For Frontend using vscode live sever--run server using login.html
+
 https://www.youtube.com/watch?v=7xchuqcsncY
