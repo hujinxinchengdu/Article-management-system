@@ -11,6 +11,8 @@ Wenrui Fang:
 	Wrote the page of homepage part;
 	Completed other auxiliary functions like getting user basic information and updating password;
 	Wrote code of front-end part of posting articles;
+	
+The diagram on the homepage is not the content of this project. It is just a sample display.
 
 ## User Story
 
