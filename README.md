@@ -243,7 +243,7 @@ nodemon app.js
 If do not have nodemon you should install it by following command
 
 ```
-npm install --save-dev nodemon
+npm install -g nodemon
 ```
 
 For Frontend using vscode live sever--run server using login.html
