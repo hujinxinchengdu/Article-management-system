@@ -72,6 +72,7 @@ exports.getArticleLists = (req, res) => {
             // 1. Failed to execute SQL statement
             if (err) return res.cc(err)
             // 2. SQL statement executed successfully
+            console.log(results)
             res.send({
                 status: 0,
                 message: 'Get the article list successfully!',
