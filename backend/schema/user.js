@@ -17,7 +17,7 @@ const password = joi
 
 
 // 定义 id, nickname, emial 的验证规则
-const userId = joi.number().integer().min(1).required();
+const userId = joi.string().required();
 const nickName = joi.string().required();
 const email = joi.string().email().required();
 
